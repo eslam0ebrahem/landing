@@ -43,7 +43,7 @@ const DialogTabSubmit = ({ setState, state, renderTabFooter, nextTab }) => {
     );
     // console.log(e);
     fetch(apiUrl.href, {
-      method: "POT",
+      method: "POST",
       body: JSON.stringify({
         dedicatedTenancy: false,
         name: firstName,
@@ -63,7 +63,8 @@ const DialogTabSubmit = ({ setState, state, renderTabFooter, nextTab }) => {
       }),
     })
       .then((res) => {
-        router.replace("admin.systemha.com");
+        if (res.status === 200) router.replace("https://admin.systemha.com");
+        else console.log("here ", res);
       })
       .catch((err) => console.error(err));
     // setState({ ...state, country, line1, line2, town, zipCode, province });
