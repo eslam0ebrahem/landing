@@ -61,16 +61,17 @@ const DialogTabSubmit = ({ setState, state, renderTabFooter, nextTab }) => {
         confirmPassword,
       })
       .then(async ({ data }) => {
-        console.log(data.userData);
+        console.log(data);
         setState({
           ...state,
-          website: `https://${data.userData}`,
+          website: `https://${data.userData.website}`,
           dashboard: "https://admin.systemha.com",
         });
         nextTab();
       })
       .catch((err) => {
-        console.log(err.response.data);
+        console.log(err.response?.data?.message);
+        console.log(err);
         // if (errorCallback) errorCallback(err.response.data)
       });
 
