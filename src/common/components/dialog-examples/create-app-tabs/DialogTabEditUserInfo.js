@@ -50,7 +50,7 @@ const DialogTabEditUserInfo = ({
     subdomain: yup.string().required(),
     contact: yup.string().required(),
     password: yup.string().min(6).required(),
-    "confirmPassword": yup
+    confirmPassword: yup
       .string()
       .required()
       .oneOf([yup.ref("password"), null], "Passwords must match"),
@@ -68,10 +68,29 @@ const DialogTabEditUserInfo = ({
     email,
     lastName,
     subdomain,
+    password,
+    confirmPassword,
     contact,
   }) => {
-    setState({ ...state, firstName, email, lastName, subdomain, contact });
-    console.log({ firstName, email, lastName, subdomain, contact });
+    setState({
+      ...state,
+      firstName,
+      password,
+      confirmPassword,
+      email,
+      lastName,
+      subdomain,
+      contact,
+    });
+    console.log({
+      firstName,
+      password,
+      confirmPassword,
+      email,
+      lastName,
+      subdomain,
+      contact,
+    });
     nextTab();
   };
   // Handle Password
