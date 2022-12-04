@@ -137,5 +137,13 @@ export default {
         subtitle: "Submit to kickstart your project.",
       },
     },
+    finalTab: {
+      title: "Submit",
+      subtitle: "Submit",
+      tabDetails: {
+        title: "Submit",
+        subtitle: "Submit to kickstart your project.",
+      },
+    },
   },
 };

@@ -1,5 +1,5 @@
 // ** React Imports
-import { useState, forwardRef, Fragment } from "react";
+import React, { useState, forwardRef, Fragment } from "react";
 
 // ** MUI Imports
 import Box from "@mui/material/Box";
@@ -77,6 +77,7 @@ const tabsArr = [
   "userAddress",
   "paymentTab",
   "submitTab",
+  "finalTab",
 ];
 
 const DialogCreateApp = (props) => {
@@ -84,20 +85,22 @@ const DialogCreateApp = (props) => {
   const [show, setShow] = useState(false);
   const [activeTab, setActiveTab] = useState("detailsTab");
   const [state, setState] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    contact: "",
-    subdomain: "",
-    country: "",
-    line1: "",
+    firstName: "islam",
+    lastName: "ibrahim",
+    email: "islam@gmail.com",
+    contact: "+201060922080",
+    subdomain: "isssss",
+    country: "Egypt",
+    line1: "cairo",
     line2: "",
-    type: "",
-    town: "",
-    zipCode: "",
+    type: "eCommerce",
+    town: "cairo",
+    zipCode: "34611",
     province: "",
-    password: "",
-    confirmPassword: "",
+    password: "ESLAM00@@eslam",
+    dashboard: "",
+    website: "",
+    confirmPassword: "ESLAM00@@eslam",
   });
   const router = useRouter();
   const { locale } = router;
@@ -207,67 +210,71 @@ const DialogCreateApp = (props) => {
           >
             <Icon icon="mdi:close" />
           </IconButton>
-          <Box sx={{ mb: 3, textAlign: "center" }}>
-            <Typography variant="h5" sx={{ mb: 3, lineHeight: "2rem" }}>
-              {dialog.title}
-            </Typography>
-            <Typography variant="body3">{dialog.text}</Typography>
-          </Box>
-          <Box sx={{ display: "flex", flexWrap: { xs: "wrap", md: "nowrap" } }}>
-            <TabContext value={activeTab}>
-              <TabList
-                orientation="vertical"
-                onChange={(e, newValue) => setActiveTab(newValue)}
-                sx={{
-                  border: 0,
-                  minWidth: 200,
-                  "& .MuiTabs-indicator": { display: "none" },
-                  "& .MuiTabs-flexContainer": {
-                    alignItems: "flex-start",
-                    "& .MuiTab-root": {
-                      width: "100%",
-                      alignItems: "flex-start",
-                    },
-                  },
-                }}
+          {activeTab !== "finalTab" ? (
+            <React.Fragment>
+              <Box sx={{ mb: 3, textAlign: "center" }}>
+                <Typography variant="h5" sx={{ mb: 3, lineHeight: "2rem" }}>
+                  {dialog.title}
+                </Typography>
+                <Typography variant="body3">{dialog.text}</Typography>
+              </Box>
+              <Box
+                sx={{ display: "flex", flexWrap: { xs: "wrap", md: "nowrap" } }}
               >
-                <Tab
-                  disableRipple
-                  value="detailsTab"
-                  label={
-                    <TabLabel
-                      title={dialog.detailsTab.title}
-                      subtitle={dialog.detailsTab.subtitle}
-                      icon={<Icon icon="mdi:clipboard-outline" />}
-                      active={activeTab === "detailsTab"}
+                <TabContext value={activeTab}>
+                  <TabList
+                    orientation="vertical"
+                    onChange={(e, newValue) => setActiveTab(newValue)}
+                    sx={{
+                      border: 0,
+                      minWidth: 200,
+                      "& .MuiTabs-indicator": { display: "none" },
+                      "& .MuiTabs-flexContainer": {
+                        alignItems: "flex-start",
+                        "& .MuiTab-root": {
+                          width: "100%",
+                          alignItems: "flex-start",
+                        },
+                      },
+                    }}
+                  >
+                    <Tab
+                      disableRipple
+                      value="detailsTab"
+                      label={
+                        <TabLabel
+                          title={dialog.detailsTab.title}
+                          subtitle={dialog.detailsTab.subtitle}
+                          icon={<Icon icon="mdi:clipboard-outline" />}
+                          active={activeTab === "detailsTab"}
+                        />
+                      }
                     />
-                  }
-                />
-                <Tab
-                  disableRipple
-                  value="userInfo"
-                  label={
-                    <TabLabel
-                      title={dialog.userInfo.title}
-                      subtitle={dialog.userInfo.subtitle}
-                      icon={<Icon icon="mdi:account-outline" />}
-                      active={activeTab === "userInfo"}
+                    <Tab
+                      disableRipple
+                      value="userInfo"
+                      label={
+                        <TabLabel
+                          title={dialog.userInfo.title}
+                          subtitle={dialog.userInfo.subtitle}
+                          icon={<Icon icon="mdi:account-outline" />}
+                          active={activeTab === "userInfo"}
+                        />
+                      }
                     />
-                  }
-                />
-                <Tab
-                  disableRipple
-                  value="userAddress"
-                  label={
-                    <TabLabel
-                      title={dialog.userAddress.title}
-                      subtitle={dialog.userAddress.subtitle}
-                      icon={<Icon icon="mdi:home-outline" />}
-                      active={activeTab === "userAddress"}
+                    <Tab
+                      disableRipple
+                      value="userAddress"
+                      label={
+                        <TabLabel
+                          title={dialog.userAddress.title}
+                          subtitle={dialog.userAddress.subtitle}
+                          icon={<Icon icon="mdi:home-outline" />}
+                          active={activeTab === "userAddress"}
+                        />
+                      }
                     />
-                  }
-                />
-                {/* <Tab
+                    {/* <Tab
                   disableRipple
                   value="frameworkTab"
                   label={
@@ -291,72 +298,93 @@ const DialogCreateApp = (props) => {
                     />
                   }
                 /> */}
-                {props.index ? (
-                  <Tab
-                    disableRipple
-                    value="paymentTab"
-                    label={
-                      <TabLabel
-                        title={dialog.paymentTab.title}
-                        active={activeTab === "paymentTab"}
-                        subtitle={dialog.paymentTab.subtitle}
-                        icon={<Icon icon="mdi:credit-card-outline" />}
+                    {props.index ? (
+                      <Tab
+                        disableRipple
+                        value="paymentTab"
+                        label={
+                          <TabLabel
+                            title={dialog.paymentTab.title}
+                            active={activeTab === "paymentTab"}
+                            subtitle={dialog.paymentTab.subtitle}
+                            icon={<Icon icon="mdi:credit-card-outline" />}
+                          />
+                        }
                       />
-                    }
-                  />
-                ) : (
-                  ""
-                )}
-                <Tab
-                  disableRipple
-                  value="submitTab"
-                  label={
-                    <TabLabel
-                      title={dialog.submitTab.title}
-                      subtitle={dialog.submitTab.subtitle}
-                      icon={<Icon icon="mdi:check" />}
-                      active={activeTab === "submitTab"}
+                    ) : (
+                      ""
+                    )}
+                    <Tab
+                      disableRipple
+                      value="submitTab"
+                      label={
+                        <TabLabel
+                          title={dialog.submitTab.title}
+                          subtitle={dialog.submitTab.subtitle}
+                          icon={<Icon icon="mdi:check" />}
+                          active={activeTab === "submitTab"}
+                        />
+                      }
                     />
-                  }
-                />
-              </TabList>
-              <TabPanel value="detailsTab" sx={{ flexGrow: 1 }}>
-                <DialogTabDetails state={state} setState={setState} />
-                {renderTabFooter()}
-              </TabPanel>
-              <TabPanel value="userInfo" sx={{ flexGrow: 1 }}>
-                <DialogTabEditUserInfo
-                  renderTabFooter={renderTabFooter}
-                  state={state}
-                  setState={setState}
-                  nextTab={() => setActiveTab(nextTab)}
-                />
-              </TabPanel>
-              <TabPanel value="userAddress" sx={{ flexGrow: 1 }}>
-                <DialogTabAddAddress
-                  renderTabFooter={renderTabFooter}
-                  state={state}
-                  setState={setState}
-                  nextTab={() => setActiveTab(nextTab)}
-                />
-              </TabPanel>
-              <TabPanel value="paymentTab" sx={{ flexGrow: 1 }}>
-                <DialogTabBilling
-                  renderTabFooter={renderTabFooter}
-                  state={state}
-                  setState={setState}
-                  nextTab={() => setActiveTab(nextTab)}
-                />
-              </TabPanel>
-              <TabPanel value="submitTab" sx={{ flexGrow: 1 }}>
-                <DialogTabSubmit
-                  renderTabFooter={renderTabFooter}
-                  state={state}
-                  setState={setState}
-                />
-              </TabPanel>
-            </TabContext>
-          </Box>
+                  </TabList>
+
+                  <TabPanel value="detailsTab" sx={{ flexGrow: 1 }}>
+                    <DialogTabDetails
+                      state={state}
+                      setState={setState}
+                      nextTab={() => setActiveTab(nextTab)}
+                      renderTabFooter={renderTabFooter}
+                    />
+                  </TabPanel>
+                  <TabPanel value="userInfo" sx={{ flexGrow: 1 }}>
+                    <DialogTabEditUserInfo
+                      renderTabFooter={renderTabFooter}
+                      state={state}
+                      setState={setState}
+                      nextTab={() => setActiveTab(nextTab)}
+                    />
+                  </TabPanel>
+                  <TabPanel value="userAddress" sx={{ flexGrow: 1 }}>
+                    <DialogTabAddAddress
+                      renderTabFooter={renderTabFooter}
+                      state={state}
+                      setState={setState}
+                      nextTab={() => setActiveTab(nextTab)}
+                    />
+                  </TabPanel>
+                  <TabPanel value="paymentTab" sx={{ flexGrow: 1 }}>
+                    <DialogTabBilling
+                      renderTabFooter={renderTabFooter}
+                      state={state}
+                      setState={setState}
+                      nextTab={() => setActiveTab(nextTab)}
+                    />
+                  </TabPanel>
+                  <TabPanel value="submitTab" sx={{ flexGrow: 1 }}>
+                    <DialogTabSubmit
+                      renderTabFooter={renderTabFooter}
+                      state={state}
+                      setState={setState}
+                      nextTab={() => setActiveTab(nextTab)}
+                    />
+                  </TabPanel>
+                </TabContext>
+              </Box>
+            </React.Fragment>
+          ) : (
+            <Box sx={{ mb: 3, textAlign: "center" }}>
+              <a href={state.website}>
+                <Typography variant="h6" sx={{ mb: 3, lineHeight: "2rem" }}>
+                  {state.website}
+                </Typography>
+              </a>
+              <a href={state.website}>
+                <Typography variant="h6" sx={{ mb: 3, lineHeight: "2rem" }}>
+                  {state.dashboard}
+                </Typography>
+              </a>
+            </Box>
+          )}
         </DialogContent>
       </Dialog>
     </Fragment>

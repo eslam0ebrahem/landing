@@ -16,16 +16,18 @@ import Icon from "../../../../@core/components/icon";
 // ** Custom Avatar Component
 import CustomAvatar from "../../../../@core/components/mui/avatar";
 
-const TabDetails = ({ setState, state }) => {
+const TabDetails = ({ setState, state, renderTabFooter, nextTab }) => {
   const router = useRouter();
   const { locale } = router;
   const { dialog } = locale === "en" ? en : ar;
   const handleChange = (txt) => {
     setState({ ...state, type: txt });
   };
-
+  const handleAccountSubmit = () => {
+    nextTab();
+  };
   return (
-    <div>
+    <form onSubmit={handleAccountSubmit}>
       <Box sx={{ mb: 8 }}>
         <Box
           onClick={() => handleChange("crm")}
@@ -141,7 +143,8 @@ const TabDetails = ({ setState, state }) => {
           />
         </Box>
       </Box>
-    </div>
+      {renderTabFooter()}
+    </form>
   );
 };
 

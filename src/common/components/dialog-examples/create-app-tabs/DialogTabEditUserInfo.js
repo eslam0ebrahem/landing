@@ -31,8 +31,6 @@ const DialogTabEditUserInfo = ({
 }) => {
   // ** States
   const [stateOfPassword, setPassword] = useState({
-    password: "",
-    password2: "",
     showPassword: false,
     showPassword2: false,
   });

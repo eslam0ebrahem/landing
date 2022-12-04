@@ -154,5 +154,13 @@ export default {
         subtitle: "انشاء متجرك الان",
       },
     },
+    finalTab: {
+      title: "انشاء",
+      subtitle: "اانشاء متجرك",
+      tabDetails: {
+        title: "انشاء",
+        subtitle: "انشاء متجرك الان",
+      },
+    },
   },
 };

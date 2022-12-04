@@ -6,7 +6,7 @@ import { useState, forwardRef } from "react";
 import * as yup from "yup";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-
+import axios from "axios";
 import { useRouter } from "next/router";
 import en from "../../../../locales/en";
 import ar from "../../../../locales/ar";
@@ -41,10 +41,9 @@ const DialogTabSubmit = ({ setState, state, renderTabFooter, nextTab }) => {
     const apiUrl = new URL(
       "https://1l90myiar1.execute-api.us-east-1.amazonaws.com/prod/registration"
     );
-    // console.log(e);
-    fetch(apiUrl.href, {
-      method: "POST",
-      body: JSON.stringify({
+
+    axios
+      .post(apiUrl, {
         dedicatedTenancy: false,
         name: firstName,
         family_name: lastName,
@@ -60,15 +59,66 @@ const DialogTabSubmit = ({ setState, state, renderTabFooter, nextTab }) => {
         province,
         password,
         confirmPassword,
-      }),
-    })
-      .then((res) => {
-        if (res.status === 200) router.replace("https://admin.systemha.com");
-        else console.log("here ", res);
       })
-      .catch((err) => console.error(err));
-    // setState({ ...state, country, line1, line2, town, zipCode, province });
-    // nextTab();
+      .then(async ({ data }) => {
+        console.log(data.userData);
+        setState({
+          ...state,
+          website: `https://${data.userData}`,
+          dashboard: "https://admin.systemha.com",
+        });
+        nextTab();
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+        // if (errorCallback) errorCallback(err.response.data)
+      });
+
+    // // console.log(e);
+    // fetch(apiUrl.href, {
+    //   method: "POST",
+    //   body: JSON.stringify({
+    //     dedicatedTenancy: false,
+    //     name: firstName,
+    //     family_name: lastName,
+    //     tenantTier: type,
+    //     phone_number: contact,
+    //     website: subdomain,
+    //     email,
+    //     town,
+    //     country,
+    //     line1,
+    //     line2,
+    //     zipCode,
+    //     province,
+    //     password,
+    //     confirmPassword,
+    //   }),
+    // })
+    //   .then((response) => {
+    //     // response.json()
+    //     const data = response.json();
+    //     if (response.status === 200) return data;
+    //     throw Error(data);
+    //   })
+    //   .then((res) => {
+    //     // if (res.status === 200) {
+    //     //   // router.replace("https://admin.systemha.com");
+    //     //   // setState({
+    //     //   //   ...state,
+    //     //   //   country,
+    //     //   //   line1,
+    //     //   //   line2,
+    //     //   //   town,
+    //     //   //   zipCode,
+    //     //   //   province,
+    //     //   // });
+    //     // //   nextTab();
+    //     // // } else console.log("here ", res);
+    //     // nextTab();
+    //     console.log(res);
+    //   })
+    //   .catch(async () => console.error("ssss"));
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
