@@ -27,6 +27,7 @@ const DialogTabSubmit = ({ setState, state, renderTabFooter, nextTab }) => {
     lastName,
     email,
     contact,
+    type,
     subdomain,
     country,
     line1,
