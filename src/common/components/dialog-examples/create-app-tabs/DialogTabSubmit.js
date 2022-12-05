@@ -39,7 +39,7 @@ const DialogTabSubmit = ({ setState, state, renderTabFooter, nextTab }) => {
     confirmPassword,
   }) => {
     const apiUrl = new URL(
-      "https://1l90myiar1.execute-api.us-east-1.amazonaws.com/prod/registration"
+      "https://t3m8yy31f3.execute-api.us-east-1.amazonaws.com/prod/registration"
     );
 
     axios
