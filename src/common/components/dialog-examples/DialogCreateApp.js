@@ -373,17 +373,18 @@ const DialogCreateApp = (props) => {
             </React.Fragment>
           ) : (
             <Box sx={{ mb: 3, textAlign: "center" }}>
-              <a href={state.website}>
+              <a
+                href={`https://admin.systemha.com/auth/verify/?username=${state.email}`}
+              >
                 <Typography variant="h6" sx={{ mb: 3, lineHeight: "2rem" }}>
-                  {state.website}
+                  verify Your Email Address
                 </Typography>
               </a>
-              <a href={state.website}>
+              {/* <a href={state.website}>
                 <Typography variant="h6" sx={{ mb: 3, lineHeight: "2rem" }}>
                   {state.dashboard}
                 </Typography>
-                
-              </a>
+              </a> */}
             </Box>
           )}
         </DialogContent>
