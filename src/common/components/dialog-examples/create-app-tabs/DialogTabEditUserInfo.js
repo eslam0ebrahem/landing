@@ -16,12 +16,12 @@ import ar from "../../../../locales/ar";
 import {
   FormControl,
   FormHelperText,
-  Icon,
   IconButton,
   InputAdornment,
   InputLabel,
   OutlinedInput,
 } from "@mui/material";
+import Icon from "@core/components/icon";
 
 const DialogTabEditUserInfo = ({
   setState,
@@ -45,7 +45,7 @@ const DialogTabEditUserInfo = ({
     firstName: yup.string().min(4).required(),
     email: yup.string().email().required(),
     lastName: yup.string().min(4).required(),
-    subdomain: yup.string().required(),
+    // subdomain: yup.string().required(),
     contact: yup.string().required(),
     password: yup.string().min(6).required(),
     confirmPassword: yup
@@ -65,7 +65,6 @@ const DialogTabEditUserInfo = ({
     firstName,
     email,
     lastName,
-    subdomain,
     password,
     confirmPassword,
     contact,
@@ -77,7 +76,6 @@ const DialogTabEditUserInfo = ({
       confirmPassword,
       email,
       lastName,
-      subdomain,
       contact,
     });
     console.log({
@@ -86,14 +84,16 @@ const DialogTabEditUserInfo = ({
       confirmPassword,
       email,
       lastName,
-      subdomain,
       contact,
     });
     nextTab();
   };
   // Handle Password
   const handleClickShowPassword = () => {
-    setPassword({ ...stateOfPassword, showPassword: !state.showPassword });
+    setPassword({
+      ...stateOfPassword,
+      showPassword: !stateOfPassword.showPassword,
+    });
   };
 
   const handleMouseDownPassword = (event) => {
@@ -102,7 +102,10 @@ const DialogTabEditUserInfo = ({
 
   // Handle Confirm Password
   const handleClickShowConfirmPassword = () => {
-    setPassword({ ...stateOfPassword, showPassword2: !state.showPassword2 });
+    setPassword({
+      ...stateOfPassword,
+      showPassword2: !stateOfPassword.showPassword2,
+    });
   };
 
   const handleMouseDownConfirmPassword = (event) => {
@@ -253,7 +256,7 @@ const DialogTabEditUserInfo = ({
                   onChange={onChange}
                   id="stepper-linear-account-password"
                   error={Boolean(accountErrors.password)}
-                  type={state.showPassword ? "text" : "password"}
+                  type={stateOfPassword.showPassword ? "text" : "password"}
                   endAdornment={
                     <InputAdornment position="end">
                       <IconButton
@@ -264,7 +267,7 @@ const DialogTabEditUserInfo = ({
                       >
                         <Icon
                           icon={
-                            state.showPassword
+                            stateOfPassword.showPassword
                               ? "mdi:eye-outline"
                               : "mdi:eye-off-outline"
                           }
@@ -303,7 +306,7 @@ const DialogTabEditUserInfo = ({
                   onChange={onChange}
                   label="Confirm Password"
                   id="stepper-linear-account-confirmPassword"
-                  type={state.showPassword2 ? "text" : "password"}
+                  type={stateOfPassword.showPassword2 ? "text" : "password"}
                   error={Boolean(accountErrors["confirmPassword"])}
                   endAdornment={
                     <InputAdornment position="end">
@@ -315,7 +318,7 @@ const DialogTabEditUserInfo = ({
                       >
                         <Icon
                           icon={
-                            state.showPassword2
+                            stateOfPassword.showPassword2
                               ? "mdi:eye-outline"
                               : "mdi:eye-off-outline"
                           }
@@ -336,7 +339,7 @@ const DialogTabEditUserInfo = ({
             )}
           </FormControl>
         </Grid>
-        <Grid item xs={12}>
+        {/* <Grid item xs={12}>
           <FormControl fullWidth>
             <Controller
               name="subdomain"
@@ -363,7 +366,7 @@ const DialogTabEditUserInfo = ({
               </FormHelperText>
             )}
           </FormControl>
-        </Grid>
+        </Grid> */}
       </Grid>
       {renderTabFooter()}
     </form>

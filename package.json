@@ -17,7 +17,7 @@
     "@emotion/styled": "^11.10.5",
     "@glidejs/glide": "^3.6.0",
     "@hookform/resolvers": "^2.9.10",
-    "@iconify/react": "^4.0.0",
+    "@iconify/react": "^4.0.1",
     "@mui/lab": "^5.0.0-alpha.109",
     "@mui/material": "^5.10.15",
     "@next/font": "^13.0.3",

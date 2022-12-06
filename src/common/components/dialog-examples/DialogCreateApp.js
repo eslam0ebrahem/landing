@@ -74,8 +74,8 @@ const TabLabel = (props) => {
 const tabsArr = [
   "detailsTab",
   "userInfo",
-  "userAddress",
-  "paymentTab",
+  // "userAddress",
+  // "paymentTab",
   "submitTab",
   "finalTab",
 ];
@@ -85,21 +85,21 @@ const DialogCreateApp = (props) => {
   const [show, setShow] = useState(false);
   const [activeTab, setActiveTab] = useState("detailsTab");
   const [state, setState] = useState({
+    type: "eCommerce",
     firstName: "islam",
     lastName: "ibrahim",
-    email: "islam@gmail.com",
+    email: "islamiibrahiim@gmail.com",
     contact: "+201060922080",
-    subdomain: "isssss",
-    country: "Egypt",
-    line1: "cairo",
-    line2: "",
-    type: "eCommerce",
-    town: "cairo",
-    zipCode: "34611",
-    province: "",
+    // subdomain: "ec2",
+    // country: "Egypt",
+    // line1: "cairo",
+    // line2: "",
+    // town: "cairo",
+    // zipCode: "34611",
+    // province: "",
+    // dashboard: "",
+    // website: "",
     password: "ESLAM00@@eslam",
-    dashboard: "",
-    website: "",
     confirmPassword: "ESLAM00@@eslam",
   });
   const router = useRouter();
@@ -262,7 +262,7 @@ const DialogCreateApp = (props) => {
                         />
                       }
                     />
-                    <Tab
+                    {/* <Tab
                       disableRipple
                       value="userAddress"
                       label={
@@ -273,7 +273,7 @@ const DialogCreateApp = (props) => {
                           active={activeTab === "userAddress"}
                         />
                       }
-                    />
+                    /> */}
                     {/* <Tab
                   disableRipple
                   value="frameworkTab"
@@ -298,7 +298,7 @@ const DialogCreateApp = (props) => {
                     />
                   }
                 /> */}
-                    {props.index ? (
+                    {/* {props.index ? (
                       <Tab
                         disableRipple
                         value="paymentTab"
@@ -313,7 +313,7 @@ const DialogCreateApp = (props) => {
                       />
                     ) : (
                       ""
-                    )}
+                    )} */}
                     <Tab
                       disableRipple
                       value="submitTab"
@@ -344,7 +344,7 @@ const DialogCreateApp = (props) => {
                       nextTab={() => setActiveTab(nextTab)}
                     />
                   </TabPanel>
-                  <TabPanel value="userAddress" sx={{ flexGrow: 1 }}>
+                  {/* <TabPanel value="userAddress" sx={{ flexGrow: 1 }}>
                     <DialogTabAddAddress
                       renderTabFooter={renderTabFooter}
                       state={state}
@@ -359,7 +359,7 @@ const DialogCreateApp = (props) => {
                       setState={setState}
                       nextTab={() => setActiveTab(nextTab)}
                     />
-                  </TabPanel>
+                  </TabPanel> */}
                   <TabPanel value="submitTab" sx={{ flexGrow: 1 }}>
                     <DialogTabSubmit
                       renderTabFooter={renderTabFooter}
