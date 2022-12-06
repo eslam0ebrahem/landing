@@ -382,6 +382,7 @@ const DialogCreateApp = (props) => {
                 <Typography variant="h6" sx={{ mb: 3, lineHeight: "2rem" }}>
                   {state.dashboard}
                 </Typography>
+                
               </a>
             </Box>
           )}
