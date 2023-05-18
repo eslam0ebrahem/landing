@@ -5,7 +5,7 @@
 const withPlugins = require("next-compose-plugins");
 
 const nextConfig = {
-  // distDir: '../../dist/functions/next'
+  //distDir: '../../dist/functions/next'
   // images: {
   //   domains: ["pbs.twimg.com"],
   // },
@@ -26,3 +26,7 @@ module.exports = () => {
   const plugins = [];
   return plugins.reduce((acc, next) => next(acc), nextConfig);
 };
+
+module.exports = {
+  outputFileTracing: true
+}
