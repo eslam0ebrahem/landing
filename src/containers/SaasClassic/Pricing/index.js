@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
+import PropTypes, { symbol } from "prop-types";
 import Link from "next/link";
 import Box from "common/components/Box";
 import Text from "common/components/Text";
@@ -49,14 +49,14 @@ const PricingSection = ({
     data: locale === "ar" ? MONTHLY_PRICING_TABLE_AR : MONTHLY_PRICING_TABLE,
     active: true,
   });
-
+  
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setTimeout(function () {
       setLoading(true);
     }, 500);
   });
-
+  
   const data = state.data;
   const activeStatus = state.active;
 
@@ -105,7 +105,7 @@ const PricingSection = ({
   return (
     <Box {...sectionWrapper} id="pricing_section">
       <Container>
-        <Box {...secTitleWrapper} 
+        <Box {...secTitleWrapper}
         // dir={locale === "ar" ? "rtl" : "ltr"}
         >
           <Text {...secText} content={pricingSection.headText} />
@@ -161,7 +161,8 @@ const PricingSection = ({
                       />
                     </PricingHead>
                     <PricingPrice>
-                      <Text content={pricingTable.price} {...priceStyle} />
+                      <Text content={pricingTable.symbol +" "+ pricingTable.price} {...priceStyle} />
+                      
                       <Text
                         content={pricingTable.priceLabel}
                         {...priceLabelStyle}
@@ -174,26 +175,7 @@ const PricingSection = ({
                         </ListItem>
                       ))}
                     </PricingList>
-                    {/* <PricingButton>
-                      <Link href={pricingTable.url}>
-                        <Button
-                          title={pricingTable.buttonLabel}
-                          {...buttonFillStyle}
-                        />
-                      </Link>
-                      {pricingTable.trialButtonLabel ? (
-                        <Link
-                          href={pricingTable.trialURL || "#"}
-                          className="trial_button"
-                        >
-                          {pricingTable.trialButtonLabel}
-                        </Link>
-                      ) : (
-                        ""
-                      )}
-                    </PricingButton> */}
                     <DialogCreateApp
-                    
                       title={pricingTable.buttonLabel}
                       style={buttonFillStyle}
                       index={index}

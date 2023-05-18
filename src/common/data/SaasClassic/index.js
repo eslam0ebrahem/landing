@@ -82,7 +82,8 @@ export const MONTHLY_PRICING_TABLE = [
   {
     name: "Basic Account",
     description: "For Small teams or group who need to build website ",
-    price: "$0",
+    price: "0",
+    symbol: "$",
     priceLabel: "Only for first month",
     buttonLabel: "Start for free",
     url: "#",
@@ -107,7 +108,8 @@ export const MONTHLY_PRICING_TABLE = [
   {
     name: "Business Account",
     description: "For Mediums teams or group who need to build website ",
-    price: "$9.87",
+    price: "9.87",
+    symbol: "$",
     priceLabel: "Per month & subscription yearly",
     buttonLabel: "Register Now",
     url: "#",
@@ -134,7 +136,8 @@ export const MONTHLY_PRICING_TABLE = [
   {
     name: "Premium Account",
     description: "For Large teams or group who need to build website ",
-    price: "$12.98",
+    price: "12.98",
+    symbol: "$",
     priceLabel: "Per month & subscription yearly",
     buttonLabel: "Register Now",
     url: "#",
@@ -163,7 +166,8 @@ export const MONTHLY_PRICING_TABLE_AR = [
   {
     name: "الحساب الأساسي",
     description: "للفرق الصغيرة أو المجموعة التي تحتاج إلى إنشاء موقع ويب",
-    price: "$0",
+    price: "0",
+    symbol: "EGP",
     priceLabel: "للشهر الأول فقط",
     buttonLabel: "ابدأ مجانًا",
     url: "#",
@@ -185,7 +189,8 @@ export const MONTHLY_PRICING_TABLE_AR = [
   {
     name: "حساب تجاري",
     description: "للفرق المتوسطة أو المجموعة التي تحتاج إلى إنشاء موقع ويب",
-    price: "$9.87",
+    price: "9.87",
+    symbol: "EGP",
     priceLabel: "شهريًا واشتراك سنوي",
     buttonLabel: "سجل الان",
     url: "#",
@@ -209,7 +214,8 @@ export const MONTHLY_PRICING_TABLE_AR = [
   {
     name: "حساب متقدم",
     description: "للفرق الكبيرة أو المجموعة التي تحتاج إلى إنشاء موقع ويب",
-    price: "$12.98",
+    price: "12.98",
+    symbol: "EGP",
     priceLabel: "شهريًا واشتراك سنوي",
     buttonLabel: "سجل الان",
     url: "#",
@@ -236,7 +242,8 @@ export const YEARLY_PRICING_TABLE = [
   {
     name: "Basic Account",
     description: "For a single client or team who need to build website ",
-    price: "$0",
+    price: "0",
+    symbol: "$",
     priceLabel: "Only for first month",
     buttonLabel: "Start for free",
     url: "#",
@@ -261,7 +268,8 @@ export const YEARLY_PRICING_TABLE = [
   {
     name: "Business Account",
     description: "For Small teams or group who need to build website ",
-    price: "$6.00",
+    price: "6.00",
+    symbol: "$",
     priceLabel: "Per month & subscription yearly",
     buttonLabel: "Register Now",
     url: "#",
@@ -288,7 +296,8 @@ export const YEARLY_PRICING_TABLE = [
   {
     name: "Premium Account",
     description: "For Large teams or group who need to build website ",
-    price: "$9.99",
+    price: "9.99",
+    symbol: "$",
     priceLabel: "Per month & subscription yearly",
     buttonLabel: "Register Now",
     url: "#",
@@ -317,7 +326,8 @@ export const YEARLY_PRICING_TABLE_AR = [
   {
     name: "الحساب الأساسي",
     description: "للفرق الصغيرة أو المجموعة التي تحتاج إلى إنشاء موقع ويب",
-    price: "$0",
+    price: "0",
+    symbol: "EGP",
     priceLabel: "للشهر الأول فقط",
     buttonLabel: "ابدأ مجانًا",
     url: "#",
@@ -339,7 +349,8 @@ export const YEARLY_PRICING_TABLE_AR = [
   {
     name: "حساب تجاري",
     description: "للفرق المتوسطة أو المجموعة التي تحتاج إلى إنشاء موقع ويب",
-    price: "$9.87",
+    price: "9.87",
+    symbol: "EGP",
     priceLabel: "شهريًا واشتراك سنوي",
     buttonLabel: "سجل الان",
     url: "#",
@@ -363,7 +374,8 @@ export const YEARLY_PRICING_TABLE_AR = [
   {
     name: "حساب متقدم",
     description: "للفرق الكبيرة أو المجموعة التي تحتاج إلى إنشاء موقع ويب",
-    price: "$12.98",
+    price: "12.98",
+    symbol: "EGP",
     priceLabel: "شهريًا واشتراك سنوي",
     buttonLabel: "سجل الان",
     url: "#",
@@ -412,6 +424,28 @@ export const FAQ_DATA = [
 
 export const FOOTER_WIDGET = [
   {
+    id: 1,
+    title: 'Polices',
+    menuItems: [
+      {
+        id: 1,
+        url: '#',
+        text: 'Systemha - Terms of Service',
+      },
+      {
+        id: 2,
+        url: '#',
+        text: 'Systemha - Privacy Policy',
+      },
+      {
+        id: 1,
+        url: '#',
+        text: 'Systemha Level Agreement',
+      }
+    ],
+  },
+  {
+    id: 2,
     title: "About Us",
     menuItems: [
       {
@@ -436,32 +470,9 @@ export const FOOTER_WIDGET = [
       },
     ],
   },
+  ,
   {
-    title: "Our Information",
-    menuItems: [
-      {
-        url: "#",
-        text: "Return Policy",
-      },
-      {
-        url: "#",
-        text: "Privacy Policy",
-      },
-      {
-        url: "#",
-        text: "Terms & Conditions",
-      },
-      {
-        url: "#",
-        text: "Site Map",
-      },
-      {
-        url: "#",
-        text: "Store Hours",
-      },
-    ],
-  },
-  {
+    id: 3,
     title: "My Account",
     menuItems: [
       {
@@ -486,30 +497,27 @@ export const FOOTER_WIDGET = [
       },
     ],
   },
-  {
-    title: "Policy",
-    menuItems: [
-      {
-        url: "#",
-        text: "Application security",
-      },
-      {
-        url: "#",
-        text: "Software principles",
-      },
-      {
-        url: "#",
-        text: "Unwanted software policy",
-      },
-      {
-        url: "#",
-        text: "Responsible supply chain",
-      },
-    ],
-  },
 ];
 export const FOOTER_WIDGET_AR = [
   {
+    title: "سياسات",
+    menuItems: [
+      {
+        url: "#",
+        text: " الشروط والاحكام",
+      },
+      {
+        url: "#",
+        text: "سياسة الخصوصية",
+      },
+      {
+        url: "#",
+        text: "اتفاقية مستوى الخدمة",
+      }
+    ],
+  },
+  {
+    id: 2,
     title: "من نحن",
     menuItems: [
       {
@@ -531,31 +539,6 @@ export const FOOTER_WIDGET_AR = [
       {
         url: "#",
         text: "حملة اعلانية",
-      },
-    ],
-  },
-  {
-    title: "معلوماتنا",
-    menuItems: [
-      {
-        url: "#",
-        text: "سياسة العائدات",
-      },
-      {
-        url: "#",
-        text: "سياسة الخصوصية",
-      },
-      {
-        url: "#",
-        text: "البنود و الظروف",
-      },
-      {
-        url: "#",
-        text: "خريطة الموقع",
-      },
-      {
-        url: "#",
-        text: "ساعات عمل المتجر",
       },
     ],
   },
@@ -583,28 +566,7 @@ export const FOOTER_WIDGET_AR = [
         text: "طلبات المتحدث",
       },
     ],
-  },
-  {
-    title: "سياسة",
-    menuItems: [
-      {
-        url: "#",
-        text: "أمان التطبيق",
-      },
-      {
-        url: "#",
-        text: "مبادئ البرمجيات",
-      },
-      {
-        url: "#",
-        text: "سياسة البرامج غير المرغوب فيها",
-      },
-      {
-        url: "#",
-        text: "سلسلة التوريد المسؤولة",
-      },
-    ],
-  },
+  }
 ];
 
 export const FEATURES = [
@@ -759,3 +721,5 @@ export const TESTIMONIALS_AR = [
     avatar: AuthorThree,
   },
 ];
+
+
