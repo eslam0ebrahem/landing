@@ -9,7 +9,7 @@ export default function Custom404() {
         fontFamily: 'Lato',
       }}
     >
-      404 - Page Not Found!
+      404 - Page Not Found
     </h1>
   );
 }
